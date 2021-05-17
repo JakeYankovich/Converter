@@ -90,43 +90,25 @@
 
 <script>
 
-//  $(document).ready(function() {
-//			var url ='https://api.exchangeratesapi.io/latest?base=USD';
-//			$.ajax({url:url, dataType:"json"}).then(function(output) {
-//        console.log(output);
-//        var usd = output.rates["USD"];
-//        var eur = output.rates["EUR"];
-//        var jpy = output.rates["JPY"];
-//        var gbp = output.rates["GBP"];
-//        var aud = output.rates["AUD"];
-//        var nzd = output.rates["NZD"];
-//        var cad = output.rates["CAD"];
-//        var chf = output.rates["CHF"];
-//        var cnh = output.rates["CNH"];
-//        var sek = output.rates["SEK"];
-//        console.log(usd);
-//        console.log(eur);
-//
-//      });
-//    });
 
 
-  function dollarToEverything(usd){
+
+  function euroToEverything(eur){
     $(document).ready(function() {
-        var url ='https://api.exchangeratesapi.io/latest?base=USD';
+        var url ='http://api.exchangeratesapi.io/v1/latest?access_key=b336e8c614ae9767800cc6013d16f75c';
         $.ajax({url:url, dataType:"json"}).then(function(output) {
 
-          document.getElementById("eur").placeholder = (usd * output.rates["EUR"]).toFixed(2);
-          document.getElementById("jpy").placeholder = (usd * output.rates["JPY"]).toFixed(2);
-          document.getElementById("gbp").placeholder = (usd * output.rates["GBP"]).toFixed(2);
-          document.getElementById("aud").placeholder = (usd * output.rates["AUD"]).toFixed(2);
-          document.getElementById("nzd").placeholder = (usd * output.rates["NZD"]).toFixed(2);
-          document.getElementById("cad").placeholder = (usd * output.rates["CAD"]).toFixed(2);
-          document.getElementById("chf").placeholder = (usd * output.rates["CHF"]).toFixed(2);
-          document.getElementById("cny").placeholder = (usd * output.rates["CNY"]).toFixed(2);
-          document.getElementById("sek").placeholder = (usd * output.rates["SEK"]).toFixed(2);
-          usd = parseFloat(usd).toFixed(2);
-          document.getElementById("usd").placeholder = usd;
+          document.getElementById("usd").placeholder = (eur * output.rates["USD"]).toFixed(2);
+          document.getElementById("jpy").placeholder = (eur * output.rates["JPY"]).toFixed(2);
+          document.getElementById("gbp").placeholder = (eur * output.rates["GBP"]).toFixed(2);
+          document.getElementById("aud").placeholder = (eur * output.rates["AUD"]).toFixed(2);
+          document.getElementById("nzd").placeholder = (eur * output.rates["NZD"]).toFixed(2);
+          document.getElementById("cad").placeholder = (eur * output.rates["CAD"]).toFixed(2);
+          document.getElementById("chf").placeholder = (eur * output.rates["CHF"]).toFixed(2);
+          document.getElementById("cny").placeholder = (eur * output.rates["CNY"]).toFixed(2);
+          document.getElementById("sek").placeholder = (eur * output.rates["SEK"]).toFixed(2);
+          eur = parseFloat(eur).toFixed(2);
+          document.getElementById("eur").placeholder = eur;
 
         });
       });
@@ -138,7 +120,7 @@
   function myFunction() {
 
     $(document).ready(function() {
-        var url ='https://api.exchangeratesapi.io/latest?base=USD';
+        var url ='http://api.exchangeratesapi.io/v1/latest?access_key=b336e8c614ae9767800cc6013d16f75c';
         $.ajax({url:url, dataType:"json"}).then(function(output) {
 
     var x = document.getElementById("frm1");
@@ -155,56 +137,56 @@
     var sek = x.elements[9].value;
 
 
-    if (eur != ""){
-      usd = eur / output.rates["EUR"];
-      document.getElementById("eur").placeholder = eur;
-      document.getElementById("eur").value = "";
+    if (usd != ""){
+      eur = usd / output.rates["USD"];
+      document.getElementById("usd").placeholder = eur;
+      document.getElementById("usd").value = "";
     }
     else if(jpy != ""){
-      usd = jpy / output.rates["JPY"];
+      eur = jpy / output.rates["JPY"];
       document.getElementById("jpy").placeholder = jpy;
       document.getElementById("jpy").value = "";
     }
     else if(gbp != ""){
-      usd = gbp / output.rates["GBP"];
+      eur = gbp / output.rates["GBP"];
       document.getElementById("gbp").placeholder = gbp;
       document.getElementById("gbp").value = "";
     }
     else if(aud != ""){
-      usd = aud / output.rates["AUD"];
+      eur = aud / output.rates["AUD"];
       document.getElementById("aud").placeholder = aud;
       document.getElementById("aud").value = "";
     }
     else if(nzd != ""){
-      usd = nzd / output.rates["NZD"];
+      eur = nzd / output.rates["NZD"];
       document.getElementById("nzd").placeholder = nzd;
       document.getElementById("nzd").value = "";
     }
     else if(cad != ""){
-      usd = cad / output.rates["CAD"];
+      eur = cad / output.rates["CAD"];
       document.getElementById("cad").placeholder = cad;
       document.getElementById("cad").value = "";
     }
     else if(chf != ""){
-      usd = chf / output.rates["CHF"];
+      eur = chf / output.rates["CHF"];
       document.getElementById("chf").placeholder = chf;
       document.getElementById("chf").value = "";
     }
     else if(cny != ""){
-      usd = cny / output.rates["CNY"];
+      eur = cny / output.rates["CNY"];
       document.getElementById("cny").placeholder = cny;
       document.getElementById("cny").value = "";
     }
     else if(sek != ""){
-      usd = sek / output.rates["SEK"];
+      eur = sek / output.rates["SEK"];
       document.getElementById("sek").placeholder = sek;
       document.getElementById("sek").value = "";
     }
 
-    document.getElementById("usd").value = "";
+    document.getElementById("eur").value = "";
 //    usd = parseFloat(usd).toFixed(usd);
-    document.getElementById("usd").placeholder = usd;
-    dollarToEverything(usd);
+    document.getElementById("eur").placeholder = eur;
+    euroToEverything(eur);
 
   });
   });
